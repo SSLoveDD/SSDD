@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<!--我是明矾-->
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<title></title>
+
+		<style>
+			.bodyCon07 {
+				width: 1000px;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			
+			.bodyCon07 .teacher {
+				width: 1000px;
+				height: 325px;
+				position: relative;
+				margin: 0 auto;
+			}
+			
+			.bodyCon07 .teacher .teacherPic {
+				width: 1000px;
+				height: 325px;
+				position: absolute;
+				background: url(images/sirendingzhi1.jpg) no-repeat;
+			}
+			
+			.bodyCon07 .teacher .teacherPic .content {
+				width: 200px;
+				height: 325px;
+				float: left;
+				position: relative;
+			}
+			
+			.bodyCon07 .teacher .teacherPic .content .txt {
+				width: 176px;
+				height: 100px;
+				background: rgba(18, 21, 44, 0.5);
+				position: absolute;
+				left: 0px;
+				bottom: 0px;
+				padding: 0 12px;
+				border-top: 2px solid #FFE000;
+				font-family: 微软雅黑;
+				font-size: 12px;
+			}
+			
+			.bodyCon07 .teacher .teacherPic .content .txt h3 {
+				color: #FFC200;
+				font-size: 24px;
+				font-weight: 100;
+				margin: 10px 0 6px 0;
+			}
+			
+			.bodyCon07 .teacher .teacherPic h4 {
+				color: #fff;
+				font-size: 12px;
+				font-weight: 100;
+				height: 40px;
+			}
+			
+			.bodyCon07 .teacher .teacherPic .content .txt p {
+				color: #fff;
+				margin-top: 15px;
+				padding-top: 5px;
+				border-top: 1px solid #FFC200;
+				font-family: 微软雅黑;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="bodyCon07">
+			<div class="teacher">
+				<div class="teacherPic">
+					<div class="content" id="sirendingzhi1">
+						<!--				<img src="images/teacher011.jpg" width="200" height="325" />-->
+						<div class="txt">
+							<h3>新疆</h3>
+							<h4>草场丰腴、林木葱郁，有着“塞外江南”的美称</h4>
+							<p>发团日期：7-10月<br> 参考价格：5280元
+								<br> 摄影器材: 单反 广角 中长焦 三脚架等</p>
+						</div>
+					</div>
+					<div class="content" id="sirendingzhi2">
+
+						<div class="txt">
+							<h3>云南</h3>
+							<h4>东川红土地的炫彩、高原明珠——抚仙湖的柔美</h4>
+							<p>发团日期：7-11月<br> 参考价格：2780元
+								<br> 摄影器材: 单反 广角 中长焦 三脚架等</p>
+						</div>
+					</div>
+					<div class="content" id="sirendingzhi3">
+
+						<div class="txt">
+
+							<h3>贵州</h3>
+							<h4>西江千户苗寨 以美丽回答一切</h4>
+							<p>发团日期：7-12月<br> 参考价格：2680元
+								<br> 摄影器材: 单反 广角 中长焦 三脚架等</p>
+						</div>
+					</div>
+					<div class="content" id="sirendingzhi4">
+
+						<div class="txt">
+							<h3>色达</h3>
+							<h4>地球上最后的一片净土，心灵净化之旅</h4>
+							<p>发团日期：7-10月<br> 参考价格：3900元
+								<br> 摄影器材: 单反 广角 中长焦 三脚架等</p>
+						</div>
+					</div>
+					<div class="content" id="sirendingzhi5">
+
+						<div class="txt">
+							<h3>斯里兰卡</h3>
+							<h4>印度洋上的一滴眼泪！</h4>
+							<p>发团日期：6-12月<br> 参考价格：1250美金
+								<br> 摄影器材: 单反 广角 中长焦 三脚架等</p>
+						</div>
+					</div>
+				</div>
+
+				<div style="clear:both;"></div>
+
+			</div>
+		</div>
+
+		<!--java开始-->
+		<script>
+			debugger;
+			//document.getElementsByClassName不能支持IE8,返回的aResult仍然是数组，即使用的时候仍然需要下标
+			function getByClass(className) {
+				var aResult = [];
+				var arr = document.getElementsByTagName('*');
+				var re = new RegExp('\\b' + className + '\\b', i); //因为className是动态变化的，所以只能用new RegExp的方法
+				for(var i = 0; i < arr.length; i++) {
+					if(re.test(arr[i].className)) {
+						aResult.push(arr[i]);
+					}
+				};
+				return aResult; //这里返回的是指定classname的元素，而非Newjs对象，后面无法连缀。
+			}
+			//css样式的获取，有不兼容的现象，有时只能获取行内样式，无法获取外部引用的css文件的样纸
+			function getStyle(obj, attr) { //只有获取有兼容性问题，设置并没有兼容性问题;获取到的opacity是小数形式；获取的width无px
+				var value;
+				if(obj.currentStyle) { //IE
+					value = obj.currentStyle[attr];
+				} else {
+					value = getComputedStyle(obj, false)[attr]; //W3C
+				}
+				if(attr != 'opacity') {
+					value = parseInt(value, 10); //将字符串解析成整数
+				}
+				if(isNaN(value)) { //下面的针对offsetWidth等情况，但不懂为什么这种情况要单独列出来。
+					value = obj['offset' + attr.charAt(0).toUpperCase() + attr.substring(1)]; //charAt返回指定索引位置的字符
+				}
+				return value;
+			}
+
+			//添加有兼容性问题
+			function myAddEvent(obj, evName, fn) { //evName只能等于mouseover或mouseout?。ie下也有mouseout？
+				//fn是一个匿名函数，里面可以是匿名函数中包含下面自定义的hover函数
+				if(obj.attachEvent) { //IE
+					obj.attachEvent('on' + evName, function() {
+						fn.call(this); //避免this被修改  这里应该写成fn.call(obj)???
+					});
+				} else {
+					obj.addEventListener(evName, fn, false);
+				}
+			}
+
+			function hover(ev, obj, dir) {
+				var e = ev || window.event;
+				if(dir == "in") {
+					if(toAffect(obj, e, 'mouseover')) {
+						startMove(obj, {
+							'height': 325
+						}, 9);
+						startMove(obj.children[0], {
+							'padding-top': 130
+						}, 1);
+					}
+				} else {
+					if(toAffect(obj, e, 'mouseout')) {
+						startMove(obj, {
+							'height': 100
+						}, 9);
+						startMove(obj.children[0], {
+							'padding-top': 0
+						}, 1);
+					}
+				}
+			}
+
+			function toAffect(obj1, ev, event) { //鼠标进入离开 父子元素不影响
+				var obj2 = null;
+				if(ev.relatedTarget) {
+					obj2 = ev.relatedTarget;
+				} else {
+					if(event == 'mouseover') {
+						obj2 = ev.fromElement;
+					} else if(event == 'mouseout') {
+						obj2 = ev.toElement;
+					}
+				}
+				if(obj1.contains) {
+					return !obj1.contains(obj2);
+				} else {
+					return !!(obj1.compareDocumentPosition(obj2) - 20) && a != b;
+				}
+			}
+			//上面三个组合使用 调用方法：
+			//myAddEvent(a, "mouseover", function(ev) {//ev很重要，前几次失败都是ev问题
+			//	hover(ev, a,"in");
+			//})
+
+			function startMove(obj, json, speedvalue, fn) {
+				var nowAttr;
+				var speed;
+				var delay = 20;
+				var k = (11 - speedvalue) > 0 ? (11 - speedvalue) : 1;
+				clearInterval(obj.moveTimer);
+				obj.moveTimer = setInterval(function() {
+					var stop = true;
+					for(var attr in json) {
+						var curStyle = getStyle(obj, attr);
+						var target = json[attr];
+						if(attr == "opacity") {
+							nowAttr = parseInt(parseFloat(curStyle) * 100, 10);
+						} else {
+							nowAttr = parseInt(curStyle, 10);
+						}
+						if(nowAttr != target) {
+							stop = false;
+						}
+						if(stop) {
+							clearInterval(obj.moveTimer);
+							fn && fn();
+						} else {
+							speed = (target - nowAttr) / k;
+							speed = target > nowAttr ? Math.ceil(speed) : Math.floor(speed);
+							//speed=10;
+							if(attr == "opacity") {
+								obj.style[attr] = (nowAttr + speed) / 100;
+								obj.style.filter = 'alpha(opacity=' + (nowAttr + speed) + ')';
+							} else {
+								obj.style[attr] = (nowAttr + speed) + "px";
+							}
+						}
+					}
+
+				}, delay);
+			}
+			var contents = getByClass("content");
+			var txts = getByClass("txts");
+			//var txts.firstchildelements;
+			for(var i = 0; i < contents.length; i++) {
+				myAddEvent(contents[i], "mouseover", function(ev) {
+					hover(ev, this.children[0], "in");
+				});
+				myAddEvent(contents[i], "mouseout", function(ev) {
+					hover(ev, this.children[0], "out");
+				});
+				myAddEvent(contents[i], "mouseover", function(ev) {
+					this.parentElement.style.background = "url(images/" + (this.id) + ".jpg) no-repeat";
+					this.parentElement.style.transition = "all 0.8s ease 0.2s";
+					this.parentElement.style["-webkit-transition"] = "all 0.8s ease 0.2s";
+				})
+			}
+		</script>
+	</body>
+
+</html>

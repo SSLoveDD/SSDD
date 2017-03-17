@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#idNumber1{
+			  width: 80%;
+			  display: block;
+			  height: 100px;
+			}
+			#search{
+				width: 20%;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<input class="" id="idNumber1">
+		<div id="search"></div>
+		<section class="his-record"></section>
+	</body>
+	<script>
+	
+		
+		
+		
+		//保存localstorage中不存在的value时，点击搜索按钮时将搜索内容value存入localStorage.
+		function saveNoexistSearch(value){
+			if (hisItem.length>5) {
+				localStorage.removeItem(hisItem[0]);
+				localStorage.setItem(4,value);
+			}else{
+				localStorage.setItem(hisItem.length,value);
+			}
+		}
+		//保存已经存在的value进入localstorage中
+		function saveExistValue(value){
+			for (var i=0;i<localStorage.length;i++) {
+				if (value===localStorage.getItem(localStorage.key(i))) {
+					localStorage.removeItem(localStorage.key(i));
+				}
+			}
+			localStorage.setItem(localStorage.length,value);
+		}
+		//保存value进入localstorage。上面两个函数联合
+		if (value in hisItem) {//判断value是否在hisItem数组中
+			saveExistValue(value);
+		} else{
+			saveNoexistSearch(value);
+		}
+		//获取localstorage中已有的value数组
+		function getValueArr(){
+			for (var i=0;i<localStorage.length;i++) {
+				if (!isNaN(localStorage.key(i))) {
+					hisItem.push(localStorage.getItem(localStorage.key(i)));
+				}
+			}
+			return hisItem;
+		}
+		//init
+		function init(){
+			hisItem=[];
+			hisItem=getValueArr();
+			hisrecord.innerHTML="";
+			for (var i=0;i<hisItem.length;i++) {
+				newdiv=document.createElement("div");
+				newdiv.innerHTML=hisItem[i];
+				hisrecord.appendChild()
+			}
+		}
+		function getCurrentTime() {
+			var today = new Date();
+			var y = today.getFullYear();
+			var mh = today.getMonth();
+			mh++;
+			var d = today.getDate();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			m = checkTime(m)
+			s = checkTime(s)
+			var time = y + "-" + mh + "-" + d + "  " + h + ":" + m + ":" + s;
+			return time;
+		}
+	</script>
+</html>

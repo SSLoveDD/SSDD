@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				background: royalblue;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.wrap {
+				margin: 0 10%;
+				margin-top: 15px;
+			}
+			
+			.related {
+				background: yellow;
+				width: 23%;
+				float: left;
+				padding: 8px;
+			}
+			
+			.related p {
+				font-size: 13px;
+				line-height: 20px;
+			}
+			
+			.bborder {
+				padding-top: 20px;
+				border-bottom: 2px solid darkgrey;
+				margin-bottom: 15px;
+			}
+			
+			.read {
+				float: right;
+			}
+			
+			.main {
+				background: indianred;
+				margin-left: 25%;
+				padding-left: 15px;
+				padding-right: 5%;
+				padding-top: 15px;
+				border-left: 2px solid black;
+			}
+			
+			.main h3 {
+				padding-bottom: 5px;
+			}
+			
+			.meta {
+				color: #b4b4b4;
+				padding-left: 20px;
+			}
+			
+			.wenzhang {
+				font-size: 16px;
+				line-height: 24px;
+			}
+			/*访客评论个人信息*/
+			
+			.sample {
+				width: 350px;
+				height: 28px;
+				margin: 8px;
+			}
+			
+			.content {
+				border: 2px solid #FFC200;
+				min-height: 50px;
+			}
+			
+			.subbtn {
+				width: 60px;
+				height: 30px;
+				margin: 5px;
+				margin-left: 92%;
+			}
+			
+			.numofmessage {
+				padding-bottom: 10px;
+			}
+			/*新添加的评论部分的样式*/
+			
+			.numousername {
+				color: white;
+			}
+			
+			.numomessage {
+				font-size: 14px;
+				line-height: 24px;
+				color: blueviolet;
+			}
+			/*评论的内容如果太多,就会益处,要修改*/
+			
+			.numotime {
+				color: green;
+			}
+			
+			.reco {
+				margin-left: 20px;
+				font-size: 14px;
+			}
+			.record{
+				margin: 20px;
+				border: 2px solid #999999;
+				min-height: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="related">
+				<h4>相关文章</h4>
+				<p>
+					<a>深入浅出学习原型、原型链</a><span class="read">(<span>4310</span>/<span>78</span>)</span>
+				</p>
+				<p>
+					<a>闭包</a><span class="read">(<span>阅读数</span>/<span>评论数</span>)</span>
+				</p>
+				<p>
+					<a>js设计模式之工厂模式</a><span class="read">(<span>4310</span>/<span>78</span>)</span>
+				</p>
+				<p>
+					<a>js深复制与浅复制</a><span class="read">(<span>4310</span>/<span>78</span>)</span>
+				</p>
+				<p>
+					<a>深入浅出学习原型、原型链</a><span class="read">(<span>4310</span>/<span>78</span>)</span>
+				</p>
+				<div class="bborder"></div>
+				<h4>文章分类</h4>
+				<p>
+					<a>js相关</a><span class="read">(<span>431</span>)</span>
+				</p>
+				<p>
+					<a>css相关</a><span class="read">(<span>文章数</span>)</span>
+				</p>
+				<p>
+					<a>数据结构与算法</a><span class="read">(<span>78</span>)</span>
+				</p>
+				<p>
+					<a>折腾</a><span class="read">(<span>78</span>)</span>
+				</p>
+			</div>
+
+			<div class="main">
+				<h3>深入浅出作用域</h3>
+				<p class="meta"><span class="time">2017.03.03</span>阅读<span>501</span> 评论<span>5</span></p>
+				<div class="wenzhang">拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框 拖了好几个月了，但是由于近期将要参加的某一个活动，我不得
+				</div>
+				<div class="recommend">
+					<h3>评论 已有<span class="cou">0</span>个评论</h3>
+					<!--<form method="post">-->
+					<p><input type="text" class="required username sample" /><span>名称</span></p>
+					<p><input type="text" class="required sample" id="email" /><span>邮箱（不会被公开）</span></p>
+					<p><input type="text" class="sample" /><span>网站</span></p>
+					<!-- 下面实现留言板功能 -->
+					<div class="mainframe">
+						<div class="title">评论</div>
+						<div class="content" contenteditable="true"></div>
+						<input type="button" name="submit" value="发表" class="subbtn">
+						<div class="numofmessage">评论(0)</div>
+						<!-- 下面是留言区 -->
+						<div class="msgFrame">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		//debugger;
+		//当鼠标放在input框时，给每个required添加*号。
+		//		$("input").focus(function() 
+		$(".required").each(function() {
+			var $required = $("<strong class='high'> *</strong>");
+			$(this).parent().append($required);
+		})
+		var email = document.getElementById("email");
+		$(':input').blur(function() {
+			//注意这里的this是DOM对象，$(this)才是jquery对象
+			var $parent = $(this).parent();
+			//alert($parent);
+			//删除之前的错误提醒信息
+			$parent.find(".formtips").remove();
+			//验证邮件
+			if($(this).is('#email')) {
+				if(this.value == "" || (this.value != "" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value))) {
+					var errorMsg = '请输入正确的E-Mail地址.';
+					$parent.append('<span class="formtips onError">' + errorMsg + '</span>');
+				} else {
+					var okMsg = '输入正确.';
+					$parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
+				}
+			}
+		}).keyup(function() {
+			//triggerHandler 防止事件执行完后，浏览器自动为标签获得焦点
+			$(this).triggerHandler("blur");
+		}).focus(function() {
+			$(this).triggerHandler("blur");
+		}); //end blur
+
+		//接下来储存留言数据  
+		var x = 0;
+		$(".subbtn").click(function() {
+				var x = x + 1;
+				var text = $(".content").select();
+				text = text[0];
+				text = text.value;
+				var data = {
+					value: text,
+					count: x
+				};
+			})
+			//接下来储存留言数据  
+		var count = 0;
+		$(".subbtn").click(function() {
+			var username = document.getElementsByClassName('username')[0].value;
+			//alert(username);
+			var text = $(".content").text();
+			var time = getCurrentTime();
+			if(text == "") {
+				alert("您还没有输入任何内容！");
+			} else {
+				loadmessage(text, username, time);
+				count++;
+				console.log('success!');
+				$(".content").text("");
+				$(".numofmessage").text("评论(" + count + ")");
+				var cou = document.getElementsByClassName('cou')[0];
+				$(".cou").text(count);
+			}
+			var cou = document.getElementsByClassName('cou')[0];
+			//alert(cou);
+			//console.log(cou);
+			//cou.innerHTML = count;
+			//document.getElementsByClassName('username')[0].value = "";
+		})
+
+		function getCurrentTime() {
+			var today = new Date();
+			var y = today.getFullYear();
+			var mh = today.getMonth();
+			mh++;
+			var d = today.getDate();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			m = checkTime(m)
+			s = checkTime(s)
+			var time = y + "-" + mh + "-" + d + "  " + h + ":" + m + ":" + s;
+			return time;
+		}
+
+		function checkTime(i) {
+			if(i < 10)
+				i = "0" + i
+			return i
+		}
+	</script>
+	<script id="test" type="text/html">
+		{{each list as value i}}
+		<h1>{{value}}</h1>| {{/each}}
+	</script>
+	<script>
+		var data = {
+			list: ['匡佳青', '赵文爽', '王小二', '李四', '诸葛亮', '孙悟空', '唐僧'],
+		};
+		//			var ht = template('test', data);
+		//			//上面的html中有空格
+		//			var reg = /\s/g;
+		//			var html1 = ht.replace(reg, "");
+		//			arr = html1.split("|");
+		//			len=arr.length;
+		function loadmessage(message, username, time) {
+			msg = document.getElementsByClassName('msgFrame')[0];
+			//msgggg=arr[count]+message+"<div></div>"+time;
+			msgggg = "<span class='numousername'>" + username + "</span>" + "  :  " + "<span class='numomessage'>" + message + "</span>" + "<input type='button' name='submit' value='回复' class='reco'>" + "<div></div>" + "<span class='numotime'>" + time + "</span>";
+			//msgggg=msgggg+"<a class='reco'>"+"回复"+"</a>";<input type="button" name="submit" value="回复" class="reco">
+			$(".msgFrame").prepend(msgggg);
+			$(".reco").click(function() {
+				record="<div class=record contenteditable='true'>"+"</div>" +"<a>"+"取消"+"</a>"+"<a>"+"回复"+"</a>";
+				$(".msgFrame").append(record);
+			})
+		}
+	</script>
+
+</html>

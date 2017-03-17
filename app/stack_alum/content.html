@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>文章页（文章内容+评论）</title>
+		<style>
+		.wrap{
+			margin: 0 auto;
+			width: 60%;
+		}
+			h3 {
+				text-align: center;
+			}
+			
+			.time {
+				color: #333;
+				margin-top: 22px;
+				flex-direction: row;
+				position: relative;
+				align-items: center;
+				font-size: 14px;
+			}
+			.content{
+				min-height: 46px;
+				margin-bottom: 0;
+				padding-top: 5px;
+				padding-bottom: 0;
+				border:1px solid #e7eaf1;
+				border-radius: 3px;
+				transition: background 0.2s,border 0.2s;
+			}
+			.content:focus{
+				border: 1px solid #9fadc7;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id='pagechange'>
+			<a>上一篇<span>原型</span></a>
+			<a>下一篇<span>闭包</span></a>
+		</div>
+		<div class="wrap">
+			<h3>深入浅出作用域</h3>
+			<p class="time">2017.03.03 字数2744 阅读<span>501</span> 评论<span></span></p>
+			拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始在办公室画草图，乱七八糟的在那儿理思路。 　　大家不要害怕，其实下文中的这个知识框
+			<a>相关文章<span>原型</span></a>
+			
+		
+		<div>
+			<span>阅读2000</span><span>评论300</span>
+		</div>
+		<div>
+			<h3>评论 已有<span class="cou">0</span>个评论</h3>
+			<!--<form method="post">-->
+			<p><input type="text" class="required username" /><span>名称</span></p>
+			<p><input type="text" class="required" id="email" /><span>名称邮件地址（不会被公开）</span></p>
+			<p><input type="text" /><span>网站</span></p>
+			<!-- 下面实现留言板功能 -->
+			<div class="mainframe">
+				<div class="title">留言板</div>
+				<div class="content" contenteditable="true"></div>
+				<input type="button" name="submit" value="发表" class="subbtn">
+				<div class="numofmessage">留言(0)</div>
+				<!-- 下面是留言区 -->
+				<div class="msgFrame">
+				</div>
+			</div>
+		</div>
+		</div>
+		//留言区 评论下可以添加回复。添加的回复算为第二级，而非评论1级。参考简书。
+	</body>
+
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+	debugger;
+		//当鼠标放在input框时，给每个required添加*号。
+		//		$("input").focus(function() 
+		$(".required").each(function() {
+			var $required = $("<strong class='high'> *</strong>");
+			$(this).parent().append($required);
+		})
+		var email = document.getElementById("email");
+		$(':input').blur(function() {
+			//注意这里的this是DOM对象，$(this)才是jquery对象
+			var $parent = $(this).parent();
+			//alert($parent);
+			//删除之前的错误提醒信息
+			$parent.find(".formtips").remove();
+			//验证邮件
+			if($(this).is('#email')) {
+				if(this.value == "" || (this.value != "" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value))) {
+					var errorMsg = '请输入正确的E-Mail地址.';
+					$parent.append('<span class="formtips onError">' + errorMsg + '</span>');
+				} else {
+					var okMsg = '输入正确.';
+					$parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
+				}
+			}
+		}).keyup(function() {
+			//triggerHandler 防止事件执行完后，浏览器自动为标签获得焦点
+			$(this).triggerHandler("blur");
+		}).focus(function() {
+			$(this).triggerHandler("blur");
+		}); //end blur
+
+		//接下来储存留言数据  
+		var x = 0;
+		$(".subbtn").click(function() {
+				var x = x + 1;
+				var text = $(".content").select();
+				text = text[0];
+				text = text.value;
+				var data = {
+					value: text,
+					count: x
+				};
+			})
+			//接下来储存留言数据  
+		var count = 0;
+		$(".subbtn").click(function() {
+			var username = document.getElementsByClassName('username')[0].value;
+			//alert(username);
+			var text = $(".content").text();
+			var time = getCurrentTime();
+			if(text == "") {
+				alert("您还没有输入任何内容！");
+			} else {
+				loadmessage(text, username, time);
+				count++;
+				console.log('success!');
+				$(".content").text("");
+				$(".numofmessage").text("留言(" + count + ")");
+			}
+			var cou = document.getElementsByClassName('cou')[0];
+			cou.innerHTML = count;
+			document.getElementsByClassName('username')[0].value = "";
+		})
+
+		function getCurrentTime() {
+			var today = new Date();
+			var y = today.getFullYear();
+			var mh = today.getMonth();
+			mh++;
+			var d = today.getDate();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			m = checkTime(m)
+			s = checkTime(s)
+			var time = y + "-" + mh + "-" + d + "  " + h + ":" + m + ":" + s;
+			return time;
+		}
+
+		function checkTime(i) {
+			if(i < 10)
+				i = "0" + i
+			return i
+		}
+	</script>
+	<script id="test" type="text/html">
+		{{each list as value i}}
+		<h1>{{value}}</h1>| {{/each}}
+	</script>
+	<script>
+		var data = {
+			list: ['匡佳青', '赵文爽', '王小二', '李四', '诸葛亮', '孙悟空', '唐僧'],
+		};
+		//			var ht = template('test', data);
+		//			//上面的html中有空格
+		//			var reg = /\s/g;
+		//			var html1 = ht.replace(reg, "");
+		//			arr = html1.split("|");
+		//			len=arr.length;
+		function loadmessage(message, username, time) {
+			msg = document.getElementsByClassName('msgFrame')[0];
+			//msgggg=arr[count]+message+"<div></div>"+time;
+			msgggg = username + "<div></div>" + message + "<div></div>" + time;
+			$(".msgFrame").prepend(msgggg);
+		}
+	</script>
+
+</html>
