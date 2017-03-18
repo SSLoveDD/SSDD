@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		#btn {border:2px solid red;width:40px; height:40px; position:fixed; right:90px; bottom:10px; background:url(top_bg.png) no-repeat left top;display:none;}
+		#btn:hover {background:url(top_bg.png) no-repeat 0 -39px;}
+			.commentlist {
+				border: 2px solid red;
+			}
+			
+			.olfirst {
+				border: 1px solid yellow;
+			}
+			
+			.olsecond {
+				border: 2px solid green;
+				margin-left: 30px;
+			}
+			
+			body {
+				background: royalblue;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.wrap {
+				margin: 0 10%;
+				margin-top: 15px;
+			}
+			
+			.related {
+				background: yellow;
+				width: 23%;
+				float: left;
+				padding: 8px;
+			}
+			
+			.related p {
+				font-size: 13px;
+				line-height: 20px;
+			}
+			
+			.bborder {
+				padding-top: 20px;
+				border-bottom: 2px solid darkgrey;
+				margin-bottom: 15px;
+			}
+			
+			.statistic {
+				float: right;
+			}
+			
+			.main {
+				background: indianred;
+				margin-left: 25%;
+				padding-left: 15px;
+				padding-right: 5%;
+				padding-top: 15px;
+				border-left: 2px solid black;
+			}
+			
+			.title {
+				padding-bottom: 5px;
+				font-size: 19px;
+				font-weight: bold;
+			}
+			
+			.time {
+				font-size: 12px;
+				color: #B4B4B4;
+				padding-left: 20px;
+			}
+			
+			.meta {
+				color: #b4b4b4;
+				padding-left: 20px;
+			}
+			
+			.article {
+				font-size: 16px;
+				line-height: 24px;
+			}
+			
+			.bbborder {
+				padding-top: 40px;
+				margin-top: 20px;
+				border-bottom: 2px solid darkgrey;
+				margin-bottom: 15px;
+				margin-left: 150px;
+				margin-right: 150px;
+			}
+			/*访客评论个人信息*/
+			
+			.comment {
+				margin: 5px;
+				padding-top: 20px;
+			}
+			
+			.sample {
+				width: 350px;
+				height: 28px;
+				margin: 8px;
+			}
+			
+			.content {
+				border: 2px solid #FFC200;
+				min-height: 50px;
+				width: 100%;
+				border-radius: 4px;
+				font-size: 12px;
+				border: 1px solid #CCCCCC;
+				resize: none;
+				/*让文本区域不可拖动改变大小*/
+			}
+			
+			.subbtn {
+				width: 60px;
+				height: 30px;
+				margin: 5px;
+				display: inline-block;
+				text-align: right;
+			}
+			
+			.numofmessage {
+				padding-bottom: 10px;
+			}
+			/*新添加的评论部分的样式*/
+			
+			.comment1 {
+				/*评论一级的样式*/
+				margin: 5px;
+				padding: 5px 10px;
+				font-size: 14px;
+				line-height: 180%;
+				display: none;
+			}
+			
+			.recommentsub {
+				border: 1px solid #333333;
+				text-align: center;
+				font-size: 16px;
+				height: 20px;
+				width: 40px;
+				margin-left: 30px;
+			}
+			
+			.comment2 {
+				/*评论2级的样式*/
+				margin: 0px 35px;
+				padding: 5px 10px;
+				font-size: 13px;
+				border-left: 2px solid #A9A9A9;
+				display: none;
+				;
+			}
+			
+			.numousername {
+				color: white;
+			}
+			
+			.numomessage {
+				font-size: 14px;
+				line-height: 24px;
+				color: blueviolet;
+			}
+			/*评论的内容如果太多,就会益处,要修改*/
+			
+			.numotime {
+				color: green;
+			}
+			
+			.reco {
+				margin-left: 20px;
+				font-size: 14px;
+				display: block;
+				background: mediumspringgreen;
+				width: 50px;
+				height: 30px;
+				text-align: center;
+			}
+			
+			.record {
+				margin: 20px;
+				border: 2px solid #999999;
+				min-height: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<a href="javascript:;" id="btn" title="回到顶部"></a><!--若a链接中href为#，则每次点击就会跳回顶部-->
+		<div class="wrap">
+			<div class="related">
+				<h4>相关文章</h4>
+				<p>
+					<a>深入浅出学习原型、原型链</a><span class="statistic">(<span class="readernum">4310</span>/<span class="commentnum">78</span>)</span>
+				</p>
+				<p>
+					<a>闭包</a><span class="statistic">(<span class="readernum">阅读数</span>/<span class="commentnum">评论数</span>)</span>
+				</p>
+				<p>
+					<a>js设计模式之工厂模式</a><span class="statistic">(<span class="readernum">4310</span>/<span class="commentnum">78</span>)</span>
+				</p>
+				<p>
+					<a>js深复制与浅复制</a><span class="statistic">(<span class="readernum">4310</span>/<span class="commentnum">78</span>)</span>
+				</p>
+				<p>
+					<a>深入浅出学习原型、原型链</a><span class="statistic">(<span class="readernum">4310</span>/<span class="commentnum">78</span>)</span>
+				</p>
+				<p>
+					<a>js深复制与浅复制</a><span class="statistic">(<span class="readernum">4310</span>/<span class="commentnum">78</span>)</span>
+				</p>
+				<div class="bborder"></div>
+				<h4>文章分类</h4>
+				<p>
+					<a>js相关</a><span class="statistic">(<span class="articlenum">431</span>)</span>
+				</p>
+				<p>
+					<a>css相关</a><span class="statistic">(<span class="articlenum">文章数</span>)</span>
+				</p>
+				<p>
+					<a>数据结构与算法</a><span class="statistic">(<span class="articlenum">78</span>)</span>
+				</p>
+				<p>
+					<a>折腾</a><span class="statistic">(<span class="articlenum">78</span>)</span>
+				</p>
+			</div>
+
+			<div class="main">
+				<span class="title">深入浅出作用域</span><span class="time">2017.03.03</span>
+				<p class="meta">阅读<i></i><span class="curreadernum">501</span> 评论<i></i><span class="curcommentnum">0</span></p>
+				<div class="article">拖了好几个近期将要参加的某一个几个近期将要参加的
+					某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖
+					了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要
+					参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我
+					不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期拖了好几个近期将要参加的某一个几个近期将要参加的
+					某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖
+					了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要
+					参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我
+					不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将拖了好几个近期将要参加的某一个几个近期将要参加的
+					某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖
+					了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要
+					参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我
+					不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将拖了好几个近期将要参加的某一个几个近期将要参加的
+					某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖
+					了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要
+					参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我
+					不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将拖了好几个近期将要参加的某一个几个近期将要参加的
+					某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖
+					了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要
+					参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我
+					不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将拖了好几个近期将要参加的某一个几个近期将要参加的
+					某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖
+					了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要
+					参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我
+					不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将拖了好几个近期将要参加的某一个几个近期将要参加的
+					某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖
+					了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要
+					参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我
+					不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将拖了好几个近期将要参加的某一个几个近期将要参加的
+					某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖
+					了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要
+					参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我
+					不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好几个近期将要参加的某一个活动，我不得拖了好活动，我不得拖了好几个月了，但是由于近期将要参加的某一个活动，我不得不 这两天把这个东西整出来。说干就干。上午我就开始
+				</div>
+				<div class="bbborder"></div>
+				<div class="comment">
+					<h3><span class="curcommentnum">0</span>个评论</h3>
+					<div class="paste">
+						<!--<form method="post">-->
+						<p><input type="text" class="required username sample" /><span>名称</span></p>
+						<p><input type="text" class="required sample" id="email" /><span>邮箱（不会被公开）</span></p>
+						<p><input type="text" class="sample" /><span>网站</span></p>
+						<!-- 下面实现留言板功能 -->
+
+						<div class="title">评论</div>
+						<textarea class="content"></textarea>
+						<input type="button" name="submit" value="发表" class="comsubbtn">
+					</div>
+					<div class="numofmessage">评论(0)</div>
+					<!-- 下面是评论显示区 -->
+					<div class="commentlist">
+						<ol class="olfirst">
+							<ol class="olsecond">
+							</ol>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//接下来储存留言数据  
+		debugger;
+		var commentnum = 0;
+		var comsubbtn = getByClass('comsubbtn')[0];
+		myAddEvent(comsubbtn, 'click', function() {
+			var username = document.getElementsByClassName('username')[0].value;
+			var content = document.getElementsByClassName("content")[0].value;
+			var time = getCurrentTime();
+			if(content == "") {
+				alert("您还没有输入任何内容");
+			} else {
+				commentnum++;
+				loadmessage0(username, time, content);
+				recommentsub = getByClass('recommentsub')[0];
+				//alert(recommentsub);
+			}
+		})
+		//特定条件下才触发。
+//		if (recommentsub) {
+//					var recommentsub = getByClass('recommentsub')[0];
+//				var comment1num=0;
+//				myAddEvent(recommentsub, 'click', function() {
+//					showpaste();
+//					var comsubbtn1 = getByClass('comsubbtn1')[0];
+//					myAddEvent(comsubbtn1, 'click', function() {
+//						comment1num++;
+//						var username1 = document.getElementsByClassName('username1')[0].value;
+//						var content1 = document.getElementsByClassName("content1")[0].value;
+//						//var pasteblock=getByClass('pasteblock')[0];
+//						//pasteblock.style.display="none";
+//						var time1 = getCurrentTime();
+//						loadmessage1(username1, time1, content1);
+//					})
+//
+//				})
+//		}
+
+//添加class
+			function addClass(objs, className) {
+				for(var i = 0; i < objs.length; i++) {
+					if(!objs[i].className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))) {
+						objs[i].className += ' ' + className;
+					}
+				}
+			}
+		function showpaste() {
+			var temppaste = '<p><input type="text" class="required username1 sample" /><span>名称</span></p><p><input type="text" class="required sample" id="email" /><span>邮箱（不会被公开）</span></p><p><input type="text" class="sample" /><span>网站</span></p><div class="title">评论</div><textarea class="content1"></textarea><input type="button" name="submit" value="发表" class="comsubbtn1">';
+			var newpaste = document.createElement('div');
+			newpaste.innerHTML = temppaste;
+			var msg = document.getElementsByClassName('olsecond')[0];
+			msg.appendChild(newpaste);
+		}
+
+//		function hidepaste() {
+//			var temppaste = ""
+//			var newpaste = document.createElement('div');
+//			newpaste.innerHTML = temppaste;
+//			var msg = document.getElementsByClassName('olsecond')[0];
+//			msg.appendChild(newpaste);
+//		}
+
+		function loadmessage1(username1, time1, content1) {
+			msg = document.getElementsByClassName('olsecond')[0];
+			newli = document.createElement("li");
+			newli.innerHTML = '<div class="comment2"><span class="curusername1"></span>&nbsp;:&nbsp;<span class="curmessage1"></span><input class="recommentsub1" type="button" value="回复"></input></br><span class="curtime1">2017-03-03</span></div>';
+			msg.appendChild(newli);
+			var curusername = document.getElementsByClassName("curusername1")[comment1num-1];
+			var curmessage = document.getElementsByClassName("curmessage1")[comment1num-1];
+			var curtime = document.getElementsByClassName("curtime1")[comment1num-1];
+			var comment2 = document.getElementsByClassName("comment2")[comment1num-1];
+			curusername.innerHTML = username1;
+			curmessage.innerHTML = content1;
+			curtime.innerHTML = time1;
+			comment2.style.display = "block";
+		}
+
+		function loadmessage0(username, time, content) {
+			msg = document.getElementsByClassName('olsecond')[0];
+			olfirst = document.getElementsByClassName('olfirst')[0];
+			newli = document.createElement("li");
+			newli.innerHTML = '<div class="comment1"><span class="curusername"></span>&nbsp;:&nbsp;<span class="curmessage"></span><input class="recommentsub" type="button" value="回复"></input></br><span class="curtime">2017-03-03</span></div>';
+
+			olfirst.insertBefore(newli, msg);
+			var curusername = document.getElementsByClassName("curusername")[commentnum-1];
+			var curmessage = document.getElementsByClassName("curmessage")[commentnum-1];
+			var curtime = document.getElementsByClassName("curtime")[commentnum-1];
+			var comment1 = document.getElementsByClassName("comment1")[commentnum-1];
+			curusername.innerHTML = username;
+			curmessage.innerHTML = content;
+			curtime.innerHTML = time;
+			comment1.style.display = "block";
+		}
+
+		function insertAfter(newElement, targetElement) {
+			var parent = targetElement.parentNode;
+			if(parent.lastChild == targetElement) {
+				parent.appendChild(newElement);
+			} else {
+				parent.insertBefore(newElement, targetElement.nextSibling)
+			}
+		}
+		//添加有兼容性问题
+		function myAddEvent(obj, evName, fn) { //evName只能等于mouseover或mouseout?。ie下也有mouseout？
+			//fn是一个匿名函数，里面可以是匿名函数中包含下面自定义的hover函数
+			if(obj.attachEvent) { //IE
+				obj.attachEvent('on' + evName, function() {
+					fn.call(this); //避免this被修改  这里应该写成fn.call(obj)???
+				});
+			} else {
+				obj.addEventListener(evName, fn, false);
+			}
+		}
+
+		//document.getElementsByClassName不能支持IE8,返回的aResult仍然是数组，即使用的时候仍然需要下标
+		function getByClass(className) {
+			var aResult = [];
+			var arr = document.getElementsByTagName('*');
+			var re = new RegExp('\\b' + className + '\\b', i); //因为className是动态变化的，所以只能用new RegExp的方法
+			for(var i = 0; i < arr.length; i++) {
+				if(re.test(arr[i].className)) {
+					aResult.push(arr[i]);
+				}
+			};
+			return aResult; //这里返回的是指定classname的元素，而非Newjs对象，后面无法连缀。
+		}
+
+		function getCurrentTime() {
+			var today = new Date();
+			var y = today.getFullYear();
+			var mh = today.getMonth();
+			mh++;
+			var d = today.getDate();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			m = checkTime(m)
+			s = checkTime(s)
+			var time = y + "-" + mh + "-" + d + "  " + h + ":" + m + ":" + s;
+			return time;
+		}
+
+		function checkTime(i) {
+			if(i < 10)
+				i = "0" + i
+			return i
+		}
+		
+		
+		
+		
+	
+	
+	
+	var obtn=document.getElementById("btn");
+var timer=null;
+var isTop=true;
+var clientHeight=document.documentElement.clientHeight;//可视区域的高度
+window.onscroll=function(){
+osTop=document.body.scrollTop;//滚动条距离顶部距离
+if(osTop>=clientHeight){
+obtn.style.display="block";
+}else{//必须有else下面这几句，不然滑动结束到顶部后仍不会消失。
+obtn.style.display="none";
+}
+if(!isTop){//
+clearInterval(timer);}
+isTop=false;
+}
+obtn.onclick=function(){
+timer=setInterval(function(){
+osTop=document.body.scrollTop;
+//后半句用来兼容ie
+var ispeed=Math.floor(-osTop/6);//必须是前面有负号的，否则会有错误，一直到达不了顶部，距离顶部始终有5像素
+document.documentElement.scrollTop=document.body.scrollTop=osTop+ispeed;
+isTop=true;
+console.log(osTop-ispeed);
+if(osTop==0){
+clearInterval(timer);
+}
+},30);
+}
+	
+	
+	
+	
+	
+	
+		
+	</script>
+
+</html>

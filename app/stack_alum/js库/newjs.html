@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.a{
+				width: 50px;
+				height: 60px;
+				background-color: black;
+				opacity: 0.4;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a">
+			
+		</div>
+		<script type="text/javascript" src="newjs.js" ></script>
+		<script>
+			var b=getByClass("a")[0];
+			//var b2=document.getElementsByClassName("a")[0];
+//			alert(b1[0]==b2);
+//			alert(typeof(b2));
+//			alert(typeof(b1[0]));
+			var bbb=getStyle(b,"width");
+			alert(bbb);
+		</script>
+	</body>
+</html>

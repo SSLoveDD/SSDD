@@ -6,325 +6,11 @@
 在想要变化那里设置一个空div
 <div class="Sticky"></div>
 -->
-
 	<head>
 		<meta charset="UTF-8">
 		<title>明矾 前端博客 首页</title>
-		<style>
-			* {
-				padding: 0;
-				margin: 0;
-			}
-			
-			body {
-				position: relative;
-			}
-			
-			.banseo {
-				position: absolute;
-				right: 0;
-				left: 0;
-				/*这里是left,right同时设置,最后margin设置为auto*/
-				top: 56px;
-				width: 548px;
-				height: 34px;
-				margin: auto;
-			}
-			
-			.bantxt {
-				width: 504px;
-				height: 34px;
-				background-color: #131418;
-				padding-left: 20px;
-				padding-right: 20px;
-				outline: none;
-				color: #b7b7b7;
-				border-radius: 8px;
-				opacity: 0.8;
-				font-size: 14px;
-				font-family: 微软雅黑;
-				line-height: 20px;
-				border: 2px solid rgb(44, 44, 44);
-				transition: all 1.5s ease 0s;
-			}
-			
-			.bantxt:focus {
-				border: 2px solid rgb(185, 185, 185);
-				transition: all 1.5s ease 0s;
-			}
-			
-			.container {
-				font-size: 15px;
-				/*margin-left: 38.5px;
-				margin-right: 38.5px;*/
-				line-height: 50px;
-				width: 100%;
-				text-align: center;
-				color: rgb(105, 105, 109);
-				position: relative;
-				top: 125px;
-				left: 0;
-				right: 0;
-				margin: auto;
-			}
-			
-			.container a:hover {
-				color: #1769ff;
-				/*border-bottom: 2px solid #1769FF;*/
-			}
-			
-			.nn {
-				padding-top: 10px;
-				padding-bottom: 10px;
-				list-style: none;
-				margin-bottom: 10px;
-				margin-left: auto;
-				margin-right: auto;
-				width: 60%;
-				border: 1px solid whitesmoke;
-				text-align: left;
-			}
-			
-			.nav {
-				position: absolute;
-				top: 40px;
-				width: 100%;
-				left: 0;
-				color: rgb(200, 200, 200);
-				font-size: 15px;
-				text-align: left;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			
-			.nav a {
-				padding-left: 20px;
-				margin-left: 0px;
-				margin-right: 0px;
-				display: block;
-				line-height: 30px;
-				color: #69696d;
-				width: 45%;
-			}
-			
-			@font-face {
-				font-family: "imooc-icon";
-				src: url("fonts/icomoon.eot") format("embedded-opentype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.truetype") format("truetype"), url("fonts/icomoon.svg") format("svg");
-				font-weight: normal;
-				font-style: normal;
-			}
-			
-			.imooc-icon {
-				font-family: "imooc-icon";
-				font-style: normal;
-				font-weight: normal;
-				font-style: 64px;
-				font-size: 16px;
-				color: #b7b7b7;
-			}
-			
-			.btn {
-				border: 0;
-				position: absolute;
-				right: 0px;
-				background-color: transparent;
-				top: 5px;
-				bottom: 0;
-				margin: auto;
-				margin-right: 4px;
-			}
-			
-			.banseo:hover button.btn .imooc-icon {
-				color: white;
-			}
-			
-			.nzz:hover .imooc-icon {
-				color: #1769ff;
-			}
-			
-			.nzz:hover {
-				border-bottom: 2px solid #367bff;
-			}
-			
-			.nn li {
-				/*transition: all 0.6s ease-in;*/
-			}
-			
-			.nn {
-				position: absolute;
-				top: 33px;
-				left: 0;
-				right: 0;
-				overflow: hidden;
-			}
-			
-			.nn {
-				/*border-bottom: 1px solid #b7b7b7;*/
-				padding-top: 30px;
-			}
-			
-			.nzz {
-				margin-right: -3px;
-				margin-left: -11px;
-				padding-left: 30px;
-			}
-			
-			.nn li {
-				/*display: inline-block;*/
-				/*width: 30%;*/
-				line-height: 30px;
-				padding-bottom: 40px;
-				border-bottom: 2px solid #b7b7b7;
-				margin-bottom: 15px;
-			}
-			
-			.title {
-				font-weight: bold;
-				font-size: 16px;
-				color: black;
-			}
-			
-			.meta {
-				font-size: 13px;
-				float: right;
-				/*这里用padding-left好像无法随屏幕大小调整位置*/
-			}
-			
-			.maincon {
-				font-size: 14px;
-				line-height: 24px;
-			}
-			
-			.subtime {
-				font-size: 13px;
-				float: right;
-				margin-right: 10px;
-			}
-			
-			.avatar {
-				cursor: pointer;
-				float: right;
-				width: 48px;
-				height: 48px;
-				margin: 10px;
-			}
-			
-			.avatar img {
-				width: 100%;
-				height: 100%;
-				border: 1px solid #ddd;
-				border-radius: 50%;
-				vertical-align: middle;
-			}
-			
-			.butt {
-				position: absolute;
-				top: 560px;
-				left: 15%;
-				right: 15%;
-			}
-			
-			.ffborder {
-				display: inline-block;
-				height: 45px;
-				width: 15%;
-				background: #DDDDDD;
-			}
-			
-			.ffborder:before {
-				content: '';
-				display: block;
-				position: absolute;
-			}
-			
-			.ffborder:after {
-				content: '';
-				display: block;
-				position: absolute;
-			}
-			
-			.ffborder {
-				border: 0;
-				box-sizing: border-box;
-				box-shadow: inset 0 0 0 0px transparent;
-				position: relative;
-			}
-			
-			.ffborder:after,
-			.ffborder:before {
-				box-sizing: border-box;
-				border: 2px solid transparent;
-				width: 0;
-				height: 0;
-			}
-			
-			.ffborder:after {
-				top: 0;
-				left: 0;
-				/*一定要加上面这两句,不然会窜*/
-				-webkit-transition: border-color 0s ease-in 0.8s, width 0.2s ease-in 0.6s, height 0.2s ease-in 0.4s;
-				transition: border-color 0s ease-in 0.8s, width 0.2s ease-in 0.6s, height 0.2s ease-in 0.4s;
-			}
-			
-			.ffborder:before {
-				bottom: 0;
-				right: 0;
-				-webkit-transition: border-color 0s ease-in 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
-				transition: border-color 0s ease-in 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
-			}
-			
-			.ffborder:hover:after,
-			.ffborder:hover:before {
-				width: 100%;
-				height: 100%;
-			}
-			
-			.ffborder:hover:after {
-				border-top-color: #367dff;
-				border-right-color: #367dff;
-				-webkit-transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
-				transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
-			}
-			
-			.ffborder:hover:before {
-				border-bottom-color: #367dff;
-				border-left-color: #367dff;
-				-webkit-transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
-				transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
-			}
-			
-			.auto_hidden {
-				width: 204px;
-				border-top: 1px solid #333;
-				border-bottom: 1px solid #333;
-				border-left: 1px solid #333;
-				border-right: 1px solid #333;
-				position: absolute;
-				display: none;
-			}
-			
-			.auto_show {
-				width: 204px;
-				border-top: 1px solid #333;
-				border-bottom: 1px solid #333;
-				border-left: 1px solid #333;
-				border-right: 1px solid #333;
-				position: absolute;
-				z-index: 9999;
-				/* 设置对象的层叠顺序 */
-				display: block;
-			}
-			
-			.banseo>div {
-				float: left;
-				top: 500px;
-				width: 31%;
-				color: red;
-				z-index: 1000009;
-			}
-		</style>
+		<link rel="stylesheet" href="index1.4.css" />
 	</head>
-
 	<body>
 		<div>
 			<a class="avatar">
@@ -334,12 +20,11 @@
 		<div class="banseo">
 			<input type="text" class="bantxt" placeholder="搜索文章">
 			<button class="btn" type="button"><i class="imooc-icon">&#xe986;</i></button>
+		   <!-- <input type="text" class="bantxtt" placeholder="搜索文章">-->
+		    <div class="hisrecord"></div>
 		</div>
 		<div class="hisrecord"></div>
-		<div class="auto_hidden" id="auto">
-			<!--自动完成 DIV-->
-		</div>
-		<div class="container" style="position: relative;">
+		<div class="container is-fixed" style="position: relative;">
 			<a class="nzz">
 				<span class="sort">
 	    			<i class="imooc-icon">&#xe905;</i>
@@ -463,12 +148,13 @@
 		</ul>
 
 		<script>
-			//debugger;
-			//window.localStorage.clear();
+			debugger;
+			window.localStorage.clear();
 			var nzz = getByClass('nzz');
 			var nn = getByClass('nn');
 			var nav = getByClass('nav')[0];
 			var hisrecord = getByClass('hisrecord')[0];
+			var bantxtt = getByClass('bantxtt')[0];
 			var bantxt = getByClass('bantxt')[0];
 			var btn = getByClass('btn')[0];
 			localStorage.setItem('2017-3-16  21:33:36', '匡佳青0');
@@ -491,10 +177,14 @@
 				//必须按照时间排，用数组命名不可以。因为字典式的
 			myAddEvent(btn, 'click', function() {
 					curvalue = bantxt.value;
-					curtime = getCurrentTime();
-					init();
-					saveValue(curtime, curvalue);
-					bantxt.value = "";
+					if (curvalue=="") {
+						alert("并没有输入内容");
+					}else{
+						curtime = getCurrentTime();
+						init();
+						saveValue(curtime, curvalue);
+						bantxt.value = "";
+					}
 				})
 				//保存localstorage中不存在的value时，点击搜索按钮时将搜索内容value存入localStorage.
 			function saveNoexistSearch(curtime, value) {

@@ -1,0 +1,251 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.banseo {
+	width: 548px;
+	height: 34px;
+	margin: 25px auto;
+	position: relative;/*为了方便历史记录的定位*/
+	z-index: 99;
+}
+
+.bantxt {
+	width: 504px;
+	height: 34px;
+	background-color: #131418;
+	padding-left: 20px;
+	padding-right: 20px;
+	outline: none;
+	color: #b7b7b7;
+	border-radius: 8px;
+	opacity: 0.8;
+	font-size: 14px;
+	font-family: 微软雅黑;
+	line-height: 20px;
+	border: 2px solid rgb(44, 44, 44);
+	transition: all 1.5s ease 0s;
+}
+
+.bantxt:focus {
+	border: 2px solid rgb(185, 185, 185);
+	transition: all 1.5s ease 0s;
+}
+.hisrecord{
+	display: none;
+	width: 548px;
+	height: auto;
+	background: white;
+	border: 2px solid #CCCCCC;
+	font-size:14px;
+	line-height: 150%;
+}
+.container {
+	font-size: 15px;
+	line-height: 50px;
+	width: 100%;
+	text-align: center;
+	color: rgb(105, 105, 109);
+}
+.is-fixed{
+	z-index: 100;
+	top: 0;
+	background: gainsboro;
+	color: black;
+	font-weight: bold;
+	position: fixed;
+}
+.container a:hover {
+	color: #1769ff;
+}
+
+.nn {
+	padding: 10px;
+	list-style: none;
+	margin: 10px auto;
+	width: 60%;
+	border: 1px solid whitesmoke;
+	text-align: left;
+}
+@font-face {
+	font-family: "imooc-icon";
+	src: url("fonts/icomoon.eot") format("embedded-opentype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.truetype") format("truetype"), url("fonts/icomoon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+.imooc-icon {
+	font-family: "imooc-icon";
+	font-style: normal;
+	font-weight: normal;
+	font-style: 64px;
+	font-size: 16px;
+	color: #b7b7b7;
+}
+.btn {
+	border: 0;
+	position: absolute;
+	right: 0px;
+	background-color: transparent;
+	top: 5px;
+	bottom: 0;
+	margin: auto;
+	margin-right: 4px;
+}
+
+.banseo:hover button.btn .imooc-icon {
+	color: white;
+}
+
+.nzz:hover .imooc-icon {
+	color: #1769ff;
+}
+
+.nzz:hover {
+	border-bottom: 2px solid #367bff;
+}
+.detail{
+	border: 2px solid red;
+}
+.nn {
+	position: absolute;
+	top: 33px;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+}
+
+.nn {
+	padding-top: 30px;
+}
+
+.nzz {
+	margin-right: -3px;
+	margin-left: -11px;
+	padding-left: 30px;
+}
+
+.nn li {
+	/*display: inline-block;*/
+	/*width: 30%;*/
+	line-height: 30px;
+	padding-bottom: 40px;
+	border-bottom: 2px solid #b7b7b7;
+	margin-bottom: 15px;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 16px;
+	color: black;
+}
+
+.meta {
+	font-size: 13px;
+	float: right;
+	/*这里用padding-left好像无法随屏幕大小调整位置*/
+}
+
+.maincon {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.subtime {
+	font-size: 13px;
+	float: right;
+	margin-right: 10px;
+}
+
+.avatar {
+	cursor: pointer;
+	float: right;
+	width: 48px;
+	height: 48px;
+	margin: 10px;
+}
+
+.avatar img {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+.butt {
+	position: absolute;
+	top: 560px;
+	left: 15%;
+	right: 15%;
+}
+
+.ffborder {
+	display: inline-block;
+	height: 45px;
+	width: 15%;
+	background: #DDDDDD;
+}
+
+.ffborder:before {
+	content: '';
+	display: block;
+	position: absolute;
+}
+
+.ffborder:after {
+	content: '';
+	display: block;
+	position: absolute;
+}
+
+.ffborder {
+	border: 0;
+	box-sizing: border-box;
+	box-shadow: inset 0 0 0 0px transparent;
+	position: relative;
+}
+
+.ffborder:after,
+.ffborder:before {
+	box-sizing: border-box;
+	border: 2px solid transparent;
+	width: 0;
+	height: 0;
+}
+
+.ffborder:after {
+	top: 0;
+	left: 0;
+	/*一定要加上面这两句,不然会窜*/
+	-webkit-transition: border-color 0s ease-in 0.8s, width 0.2s ease-in 0.6s, height 0.2s ease-in 0.4s;
+	transition: border-color 0s ease-in 0.8s, width 0.2s ease-in 0.6s, height 0.2s ease-in 0.4s;
+}
+
+.ffborder:before {
+	bottom: 0;
+	right: 0;
+	-webkit-transition: border-color 0s ease-in 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
+	transition: border-color 0s ease-in 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
+}
+
+.ffborder:hover:after,
+.ffborder:hover:before {
+	width: 100%;
+	height: 100%;
+}
+
+.ffborder:hover:after {
+	border-top-color: #367dff;
+	border-right-color: #367dff;
+	-webkit-transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
+	transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
+}
+
+.ffborder:hover:before {
+	border-bottom-color: #367dff;
+	border-left-color: #367dff;
+	-webkit-transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
+	transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
+}
+

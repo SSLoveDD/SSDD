@@ -243,19 +243,6 @@
 			$(this).triggerHandler("blur");
 		}); //end blur
 
-		//接下来储存留言数据  
-		var x = 0;
-		$(".subbtn").click(function() {
-				var x = x + 1;
-				var text = $(".content").select();
-				text = text[0];
-				text = text.value;
-				var data = {
-					value: text,
-					count: x
-				};
-			})
-			//接下来储存留言数据  
 		var count = 0;
 		$(".subbtn").click(function() {
 			var username = document.getElementsByClassName('username')[0].value;
@@ -314,21 +301,7 @@
 				i = "0" + i
 			return i
 		}
-	</script>
-	<script id="test" type="text/html">
-		{{each list as value i}}
-		<h1>{{value}}</h1>| {{/each}}
-	</script>
-	<script>
-		var data = {
-			list: ['匡佳青', '赵文爽', '王小二', '李四', '诸葛亮', '孙悟空', '唐僧'],
-		};
-		//			var ht = template('test', data);
-		//			//上面的html中有空格
-		//			var reg = /\s/g;
-		//			var html1 = ht.replace(reg, "");
-		//			arr = html1.split("|");
-		//			len=arr.length;
+
 		function loadmessage(message, username, time) {
 			msg = document.getElementsByClassName('msgFrame')[0];
 			msgggg = "<span class='numousername'>" + username + "</span>" + "  :  " + 
