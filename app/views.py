@@ -15,8 +15,7 @@ def register():
             db.session.add(usr)
             db.commit()
             resp=make_response(render_template("index.html"))
-            resp.set_cookie('usrname',form['name'])
-            resp.set_cookie('password',form['password'])
+            session['loged_in']=True
             return resp
     return render_template('register.html')
 
