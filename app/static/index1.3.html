@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+	<!--需要修改的地方：
+1，布局，重新思考，不可以过度依赖绝对定位；
+2，css动画效果需要加强；
+在想要变化那里设置一个空div
+<div class="Sticky"></div>
+-->
+
+	<head>
+		<meta charset="UTF-8">
+		<title>明矾 前端博客 首页</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				position: relative;
+			}
+			
+			.banseo {
+				position: absolute;
+				right: 0;
+				left: 0;
+				/*这里是left,right同时设置,最后margin设置为auto*/
+				top: 56px;
+				width: 548px;
+				height: 34px;
+				margin: auto;
+			}
+			
+			.bantxt {
+				width: 504px;
+				height: 34px;
+				background-color: #131418;
+				padding-left: 20px;
+				padding-right: 20px;
+				outline: none;
+				color: #b7b7b7;
+				border-radius: 8px;
+				opacity: 0.8;
+				font-size: 14px;
+				font-family: 微软雅黑;
+				line-height: 20px;
+				border: 2px solid rgb(44, 44, 44);
+				transition: all 1.5s ease 0s;
+			}
+			
+			.bantxt:focus {
+				border: 2px solid rgb(185, 185, 185);
+				transition: all 1.5s ease 0s;
+			}
+			
+			.container {
+				font-size: 15px;
+				/*margin-left: 38.5px;
+				margin-right: 38.5px;*/
+				line-height: 50px;
+				width: 100%;
+				text-align: center;
+				color: rgb(105, 105, 109);
+				position: relative;
+				top: 125px;
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+			
+			.container a:hover {
+				color: #1769ff;
+				/*border-bottom: 2px solid #1769FF;*/
+			}
+			
+			.nn {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				list-style: none;
+				margin-bottom: 10px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 60%;
+				border: 1px solid whitesmoke;
+				text-align: left;
+			}
+			
+			.nav {
+				position: absolute;
+				top: 40px;
+				width: 100%;
+				left: 0;
+				color: rgb(200, 200, 200);
+				font-size: 15px;
+				text-align: left;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.nav a {
+				padding-left: 20px;
+				margin-left: 0px;
+				margin-right: 0px;
+				display: block;
+				line-height: 30px;
+				color: #69696d;
+				width: 45%;
+			}
+			
+			@font-face {
+				font-family: "imooc-icon";
+				src: url("fonts/icomoon.eot") format("embedded-opentype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.truetype") format("truetype"), url("fonts/icomoon.svg") format("svg");
+				font-weight: normal;
+				font-style: normal;
+			}
+			
+			.imooc-icon {
+				font-family: "imooc-icon";
+				font-style: normal;
+				font-weight: normal;
+				font-style: 64px;
+				font-size: 16px;
+				color: #b7b7b7;
+			}
+			
+			.btn {
+				border: 0;
+				position: absolute;
+				right: 0px;
+				background-color: transparent;
+				top: 5px;
+				bottom: 0;
+				margin: auto;
+				margin-right: 4px;
+			}
+			
+			.banseo:hover button.btn .imooc-icon {
+				color: white;
+			}
+			
+			.nzz:hover .imooc-icon {
+				color: #1769ff;
+			}
+			
+			.nzz:hover {
+				border-bottom: 2px solid #367bff;
+			}
+			
+			.nn li {
+				/*transition: all 0.6s ease-in;*/
+			}
+			
+			.nn {
+				position: absolute;
+				top: 33px;
+				left: 0;
+				right: 0;
+				overflow: hidden;
+			}
+			
+			.nn {
+				/*border-bottom: 1px solid #b7b7b7;*/
+				padding-top: 30px;
+			}
+			
+			.nzz {
+				margin-right: -3px;
+				margin-left: -11px;
+				padding-left: 30px;
+			}
+			
+			.nn li {
+				/*display: inline-block;*/
+				/*width: 30%;*/
+				line-height: 30px;
+				padding-bottom: 40px;
+				border-bottom: 2px solid #b7b7b7;
+				margin-bottom: 15px;
+			}
+			
+			.title {
+				font-weight: bold;
+				font-size: 16px;
+				color: black;
+			}
+			
+			.meta {
+				font-size: 13px;
+				float: right;
+				/*这里用padding-left好像无法随屏幕大小调整位置*/
+			}
+			
+			.maincon {
+				font-size: 14px;
+				line-height: 24px;
+			}
+			
+			.subtime {
+				font-size: 13px;
+				float: right;
+				margin-right: 10px;
+			}
+			
+			.avatar {
+				cursor: pointer;
+				float: right;
+				width: 48px;
+				height: 48px;
+				margin: 10px;
+			}
+			
+			.avatar img {
+				width: 100%;
+				height: 100%;
+				border: 1px solid #ddd;
+				border-radius: 50%;
+				vertical-align: middle;
+			}
+			
+			.butt {
+				position: absolute;
+				top: 560px;
+				left: 15%;
+				right: 15%;
+			}
+			
+			.ffborder {
+				display: inline-block;
+				height: 45px;
+				width: 15%;
+				background: #DDDDDD;
+			}
+			
+			.ffborder:before {
+				content: '';
+				display: block;
+				position: absolute;
+			}
+			
+			.ffborder:after {
+				content: '';
+				display: block;
+				position: absolute;
+			}
+			
+			.ffborder {
+				border: 0;
+				box-sizing: border-box;
+				box-shadow: inset 0 0 0 0px transparent;
+				position: relative;
+			}
+			
+			.ffborder:after,
+			.ffborder:before {
+				box-sizing: border-box;
+				border: 2px solid transparent;
+				width: 0;
+				height: 0;
+			}
+			
+			.ffborder:after {
+				top: 0;
+				left: 0;
+				/*一定要加上面这两句,不然会窜*/
+				-webkit-transition: border-color 0s ease-in 0.8s, width 0.2s ease-in 0.6s, height 0.2s ease-in 0.4s;
+				transition: border-color 0s ease-in 0.8s, width 0.2s ease-in 0.6s, height 0.2s ease-in 0.4s;
+			}
+			
+			.ffborder:before {
+				bottom: 0;
+				right: 0;
+				-webkit-transition: border-color 0s ease-in 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
+				transition: border-color 0s ease-in 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
+			}
+			
+			.ffborder:hover:after,
+			.ffborder:hover:before {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.ffborder:hover:after {
+				border-top-color: #367dff;
+				border-right-color: #367dff;
+				-webkit-transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
+				transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
+			}
+			
+			.ffborder:hover:before {
+				border-bottom-color: #367dff;
+				border-left-color: #367dff;
+				-webkit-transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
+				transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
+			}
+			
+			.auto_hidden {
+				width: 204px;
+				border-top: 1px solid #333;
+				border-bottom: 1px solid #333;
+				border-left: 1px solid #333;
+				border-right: 1px solid #333;
+				position: absolute;
+				display: none;
+			}
+			
+			.auto_show {
+				width: 204px;
+				border-top: 1px solid #333;
+				border-bottom: 1px solid #333;
+				border-left: 1px solid #333;
+				border-right: 1px solid #333;
+				position: absolute;
+				z-index: 9999;
+				/* 设置对象的层叠顺序 */
+				display: block;
+			}
+			
+			.banseo>div {
+				float: left;
+				top: 500px;
+				width: 31%;
+				color: red;
+				z-index: 1000009;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<a class="avatar">
+				<img src="images/11.png" />
+			</a>
+		</div>
+		<div class="banseo">
+			<input type="text" class="bantxt" placeholder="搜索文章">
+			<button class="btn" type="button"><i class="imooc-icon">&#xe986;</i></button>
+		</div>
+		<div class="hisrecord"></div>
+		<div class="auto_hidden" id="auto">
+			<!--自动完成 DIV-->
+		</div>
+		<div class="container" style="position: relative;">
+			<a class="nzz">
+				<span class="sort">
+	    			<i class="imooc-icon">&#xe905;</i>
+	    			CSS&nbsp;
+	    			<i class="imooc-icon"></i>
+	    		</span>
+			</a>
+			<ul class="nn">
+				<li>
+					<a class="title">你这样写作！真没什么意思！</a>　　<span class="subtime">2017.03.03</span>
+					<p class="maincon">&nbsp;&nbsp;世间事·我最喜欢的环卫工人寒风裹挟着枯黄的梧桐落叶在空中盘旋飞舞，像是一群张牙舞爪的小鬼在人间肆意袭击着路人。这种鬼天气对环卫工王霞来说注定是一场灾难，她……</p>
+					<p class="meta">浏览500次 评论45次 赞 50次 </p>
+
+				</li>
+				<li>
+					<a class="title">究竟是什么挡住了普通人的逆袭道路？！</a>　　<span class="subtime">2017.03.03</span>
+					<p class="maincon">&nbsp;&nbsp;上月，阶层固化话题爆发。 连锁效应。直接导致了近期打破阶层的话题爆发。但看了很多励志文章，最让我觉得接近现实的，只有雾满拦江老师的一段话： 如果你渴望改变命运，冲破现有阶层的...</p>
+					<p class="meta">浏览500次 评论45次 赞 50次 </p>
+				</li>
+				<li>
+					<a class="title">20多岁，看对书比看书多要划算的多</a>　　<span class="subtime">2017.03.03</span>
+					<p class="maincon">&nbsp;&nbsp;看书是人类学习最基础的一种方式，只要识字任何一个年龄段的人，都可以捧起一本书进行阅读。在当今这个知识的年代，懂得多自然是自己的一种资本，当然对于年轻的我们而言，看书也要有所选...</p>
+					<p class="meta">浏览500次 评论45次 赞 50次 </p>
+				</li>
+				<li>
+					<a class="title">20多岁，看对书比看书多要划算的多</a>　　<span class="subtime">2017.03.03</span>
+					<p class="maincon">&nbsp;&nbsp;看书是人类学习最基础的一种方式，只要识字任何一个年龄段的人，都可以捧起一本书进行阅读。在当今这个知识的年代，懂得多自然是自己的一种资本，当然对于年轻的我们而言，看书也要有所选...</p>
+					<p class="meta">浏览500次 评论45次 赞 50次 </p>
+				</li>
+				<li>
+					<a class="title">20多岁，看对书比看书多要划算的多</a>　　<span class="subtime">2017.03.03</span>
+					<p class="maincon">&nbsp;&nbsp;看书是人类学习最基础的一种方式，只要识字任何一个年龄段的人，都可以捧起一本书进行阅读。在当今这个知识的年代，懂得多自然是自己的一种资本，当然对于年轻的我们而言，看书也要有所选...</p>
+					<p class="meta">浏览500次 评论45次 赞 50次 </p>
+				</li>
+				<li>
+					<a class="title">20多岁，看对书比看书多要划算的多</a>　　<span class="subtime">2017.03.03</span>
+					<p class="maincon">&nbsp;&nbsp;看书是人类学习最基础的一种方式，只要识字任何一个年龄段的人，都可以捧起一本书进行阅读。在当今这个知识的年代，懂得多自然是自己的一种资本，当然对于年轻的我们而言，看书也要有所选...</p>
+					<p class="meta">浏览500次 评论45次 赞 50次 </p>
+				</li>
+				<li>
+					<a class="title">20多岁，看对书比看书多要划算的多</a>　　<span class="subtime">2017.03.03</span>
+					<p class="maincon">&nbsp;&nbsp;看书是人类学习最基础的一种方式，只要识字任何一个年龄段的人，都可以捧起一本书进行阅读。在当今这个知识的年代，懂得多自然是自己的一种资本，当然对于年轻的我们而言，看书也要有所选...</p>
+					<p class="meta">浏览500次 评论45次 赞 50次 </p>
+				</li>
+				<li>
+					<a class="title">20多岁，看对书比看书多要划算的多</a>　　<span class="subtime">2017.03.03</span>
+					<p class="maincon">&nbsp;&nbsp;看书是人类学习最基础的一种方式，只要识字任何一个年龄段的人，都可以捧起一本书进行阅读。在当今这个知识的年代，懂得多自然是自己的一种资本，当然对于年轻的我们而言，看书也要有所选...</p>
+					<p class="meta">浏览500次 评论45次 赞 50次 </p>
+				</li>
+			</ul>
+			|
+
+			<a class="nzz">
+				<span class="sort">
+	    			<i class="imooc-icon">
+	    				&#xe955;
+	    			</i>
+	    			JS &nbsp;
+	    			<i class="fa"></i>
+	    		</span>
+			</a>
+			<ul class="nn">
+				<li>
+					<a>文章11</a>
+				</li>
+				<li>
+					<a>文章12</a>
+				</li>
+				<li>
+					<a>文章13</a>
+				</li>
+			</ul>
+			|
+
+			<a class="nzz">
+				<span class="sort">
+	    			<i class="imooc-icon">
+	    				&#xe913;
+	    			</i>
+	    			产品 &nbsp;
+	    			<i class="fa"></i>
+	    		</span>
+			</a>
+			<ul class="nn">
+				<li>
+					<a>文章21</a>
+				</li>
+				<li>
+					<a>文章22</a>
+				</li>
+				<li>
+					<a>文章23</a>
+				</li>
+			</ul>
+			|
+			<a class="nzz">
+				<span class="sort">
+	    			<i class="imooc-icon">
+	    				&#xe949;
+	    			</i>
+	    			随笔&nbsp;
+	    			<i class="fa"></i>
+	    		</span>
+			</a>
+			<ul class="nn">
+				<li>
+					<a>文章31</a>
+				</li>
+				<li>
+					<a>文章32</a>
+				</li>
+				<li>
+					<a>文章33</a>
+				</li>
+			</ul>
+			|
+		</div>
+		<ul class="butt">
+			<li class="left ffborder"></li>
+			<li class="right ffborder"></li>
+		</ul>
+
+		<script>
+			//debugger;
+			//window.localStorage.clear();
+			var nzz = getByClass('nzz');
+			var nn = getByClass('nn');
+			var nav = getByClass('nav')[0];
+			var hisrecord = getByClass('hisrecord')[0];
+			var bantxt = getByClass('bantxt')[0];
+			var btn = getByClass('btn')[0];
+			localStorage.setItem('2017-3-16  21:33:36', '匡佳青0');
+			localStorage.setItem('2017-3-16  21:34:36', '匡佳青1');
+			localStorage.setItem('2017-3-16  21:35:36', '匡佳青2');
+			localStorage.setItem('2017-3-16  21:36:36', '匡佳青3');
+			localStorage.setItem('2017-3-16  21:37:36', '匡佳青4');
+			myAddEvent(bantxt, 'focus', function() {
+				init();
+				for(var i = localStorage.length - 1; i >= 0; i--) {
+					newdiv = document.createElement("div");
+					newdiv.innerHTML = localStorage.getItem(localStorage.key(i))
+					hisrecord.appendChild(newdiv);
+				}
+				hisrecord.style.display = "block";
+			})
+			myAddEvent(bantxt, 'blur', function() {
+					hisrecord.style.display = "none";
+				})
+				//必须按照时间排，用数组命名不可以。因为字典式的
+			myAddEvent(btn, 'click', function() {
+					curvalue = bantxt.value;
+					curtime = getCurrentTime();
+					init();
+					saveValue(curtime, curvalue);
+					bantxt.value = "";
+				})
+				//保存localstorage中不存在的value时，点击搜索按钮时将搜索内容value存入localStorage.
+			function saveNoexistSearch(curtime, value) {
+				if(localStorage.length >= 5) {
+					while(localStorage.length >= 5) {
+						localStorage.removeItem(localStorage.key(0));
+					}
+					localStorage.setItem(curtime, value);
+				} else {
+					localStorage.setItem(curtime, value);
+				}
+			}
+			//保存已经存在的value进入localstorage中
+			function saveExistValue(curtime, value) {
+				for(var i = 0; i < localStorage.length; i++) {
+					if(value === localStorage.getItem(localStorage.key(i))) {
+						localStorage.removeItem(localStorage.key(i));
+					}
+				}
+				localStorage.setItem(curtime, value);
+			}
+			//判断数组arr中是否存在x。
+			function existitem(x, arr) {
+				flag = false;
+				for(var i = 0; i < arr.length; i++) {
+					if(x === arr[i]) {
+						flag = true;
+						break;
+					}
+				}
+				return flag;
+			}
+			//保存value进入localstorage。上面两个函数联合
+			function saveValue(curtime, value) {
+				flagg = existitem(value, hisItem);
+				if(flagg) { //判断value是否在hisItem数组中????这里有问题
+					saveExistValue(curtime, value);
+				} else {
+					saveNoexistSearch(curtime, value);
+				}
+			}
+			//获取localstorage中已有的value数组
+			function getValueArr() {
+				for(var i = 0; i < localStorage.length; i++) {
+					//if (!isNaN(localStorage.key(i))) {//这句之所以删掉是因为时间格式好像用不了
+					hisItem.push(localStorage.getItem(localStorage.key(i)));
+					//}
+				}
+				return hisItem;
+			}
+			//init
+			function init() {
+				hisItem = [];
+				hisItem = getValueArr();
+				hisrecord.innerHTML = "";
+
+			}
+			function getCurrentTime() {
+				var today = new Date();
+				var y = today.getFullYear();
+				var mh = today.getMonth();
+				mh++;
+				var d = today.getDate();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				m = checkTime(m)
+				s = checkTime(s)
+				var time = y + "-" + mh + "-" + d + "  " + h + ":" + m + ":" + s;
+				return time;
+			}
+
+			function checkTime(i) {
+				if(i < 10)
+					i = "0" + i
+				return i
+			}
+			//添加有兼容性问题
+			function myAddEvent(obj, evName, fn) { //evName只能等于mouseover或mouseout?。ie下也有mouseout？
+				//fn是一个匿名函数，里面可以是匿名函数中包含下面自定义的hover函数
+				if(obj.attachEvent) { //IE
+					obj.attachEvent('on' + evName, function() {
+						fn.call(this); //避免this被修改  这里应该写成fn.call(obj)???
+					});
+				} else {
+					obj.addEventListener(evName, fn, false);
+				}
+			}
+			//document.getElementsByClassName不能支持IE8,返回的aResult仍然是数组，即使用的时候仍然需要下标
+			function getByClass(className) {
+				var aResult = [];
+				var arr = document.getElementsByTagName('*');
+				var re = new RegExp('\\b' + className + '\\b', i); //因为className是动态变化的，所以只能用new RegExp的方法
+				for(var i = 0; i < arr.length; i++) {
+					if(re.test(arr[i].className)) {
+						aResult.push(arr[i]);
+					}
+				};
+				return aResult; //这里返回的是指定classname的元素，而非Newjs对象，后面无法连缀。
+			}
+			nn[1].style.display = "none";
+			nn[2].style.display = "none";
+			nn[3].style.display = "none";
+			//4个nzz，4个nn
+			for (var i=0;i<nzz.length;i++) {
+				myAddEvent(nzz[i],'mouseover',function(){
+					nn[0].style.display = "none";
+					nn[1].style.display = "none";
+					nn[2].style.display = "none";
+					nn[3].style.display = "none";
+					this.nextElementSibling.style.display="block";
+				})
+			}
+		</script>
+
+	</body>
+
+</html>

@@ -1,10 +1,11 @@
 from app import app,db
 from app.models import Article,Usr
-from flask import render_template,request,make_response,redirect
+from flask import url_for,render_template,request,make_response,redirect
 @app.route('/')
 def index():
     articles=Article.query.limit(3).all()
     return render_template('index.html',articles=articles)
+    # return render_template('index1.5.html')
 
 @app.route('/register',methods=["get","post"])
 def register():
@@ -34,3 +35,8 @@ def login():
             flash('You were logged in')
             return redirect(url_for('index'))
     return render_template('login.html')
+
+@app.route('/static/<path:path>')
+def staticFun(path):
+    # return url_for('static')
+    return send_from_directory('static', path)
